@@ -24,19 +24,19 @@ with open(args.input_file, "r") as file:
     lines = file.readlines()
 
 with open(args.output_file, "w") as out_file:
-    for i in range(len(lines)):
-        if lines[i] in ["\n", "\r\n"]:
-            print(i+1)
-    # start = 0
-    # end = len(lines)
+    # for i in range(len(lines)):
+    #     if lines[i] in ["\n", "\r\n"]:
+    #         print(i+1)
+    start = 0
+    end = len(lines)
 
-    # for i in range(end-1, -1, -1):
-    #     line = lines[i].rstrip()[::-1]
+    for i in range(end-1, -1, -1):
+        line = lines[i].rstrip()[::-1]
 
-    #     if i != 0:
-    #         out_file.write(f"{i+1}. {line}\n")
-    #     else:
-    #         out_file.write(f"{i+1}. {line}")    
+        if i != 0:
+            out_file.write(f"{i+1}. {line}\n")
+        else:
+            out_file.write(f"{i+1}. {line}")    
     
     
 
