@@ -1,3 +1,5 @@
+__author__ = "Delali Kwesi Kumi Nsiah-Asare, Victor Kow Quagraine"
+
 """ IMPLEMENTATION:
     Read file path from cmd arguments
     Store all the lines in the file on first read
