@@ -1,32 +1,31 @@
-# Read file from cmd arguments
+# Read file path from cmd arguments
 # Store the lines in the file on first read
-"""
-[
-Have a book
-Play some games
-Go to sleep
-]
-"""
+# Write the lines read to the output file in reverse order (start from the bottom of the list)
+# While writing, reverse the words in the sentence
 import argparse
 
-
-parser = argparse.ArgumentParser(prog='main',
-                                 description='Reverse the lines of a file, the sentences in a line, and the words in a sentence',
-                                 epilog='Make sure you enter the file name correctly')
+parser = argparse.ArgumentParser(
+            prog='main',
+            description='Reverse the lines of a file, the sentences in a line, and the words in a sentence',
+            epilog='Make sure you enter the file name correctly')
 
 parser.add_argument('input_file') 
 parser.add_argument('output_file') 
 args = parser.parse_args()
 
 
+""" Read all the lines in the file into a list """
 lines = []
-with open(args.input_file, "r") as file:
+with open(args.input_file, "r", encoding="utf-8") as file:
     lines = file.readlines()
 
+
+"""
+    Starting from the end of the list containing the file's lines,
+    write out each line to the output file specified.
+    While writing, reverse the contents of the line.
+"""
 with open(args.output_file, "w") as out_file:
-    # for i in range(len(lines)):
-    #     if lines[i] in ["\n", "\r\n"]:
-    #         print(i+1)
     start = 0
     end = len(lines)
 
