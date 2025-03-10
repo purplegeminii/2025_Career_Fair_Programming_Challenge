@@ -11,19 +11,21 @@ parser = argparse.ArgumentParser(
     description='Reverse the lines of a file, the sentences in a line, and the words in a sentence',
     epilog='Make sure you enter the file name correctly'
 )
-
 parser.add_argument('input_file') 
 parser.add_argument('output_file') 
 args = parser.parse_args()
 
-# Calculate the start time
-start = time.perf_counter_ns()
 
 # [100, 200, 400, 800, 1000, 2000, 4000, 6000, 8000, 10000]
 no_of_lines = 100
 
-""" Read all the lines in the file into a list """
+
 lines = []
+
+# Calculate the start time
+start_time = time.perf_counter_ns()
+
+""" Read all the lines in the file into a list """
 with open(args.input_file, "r", encoding="utf-8") as file:
     lines = file.readlines(no_of_lines)
 
@@ -46,8 +48,8 @@ with open(args.output_file, "w") as out_file:
             out_file.write(f"{i+1}. {line}")    
     
 # Calculate the end time and time taken
-end = time.perf_counter_ns()
-t_length = end - start
+end_time = time.perf_counter_ns()
+t_length = (end_time - start_time)/(10**9)
 
 # Show the result
 print(f"It took {t_length} seconds! for {no_of_lines} lines")
