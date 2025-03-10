@@ -1,2 +1,36 @@
-# 2025_Career_Fair_Programming_Challenge
-Ashesi University 2025 Career Fair Programming Challenge
+# 2025 Career Fair Programming Challenge
+
+
+## Problem Statement
+You are given a text file containing an unknown number of lines. Your task is to write a program that processes the file and outputs the transformed content with the following modifications:
+1.	Reverse the Order of Lines:
+The output should list the lines in reverse order compared to the input file (i.e., the first line becomes the last, the second becomes the second-to-last, and so on) with the line number written in front of the line before the content of the line itself.
+2.	Reverse the Order of Words in Each Line:
+For every line, reverse the order in which the words appear.
+3.	Reverse Each Word’s Characters: In every word (after reversing the order), you must reverse the characters so that the word itself is mirrored.
+
+Input:
+* A text file with an unknown number of lines.
+* Each line can contain multiple words separated by spaces.
+* Lines may include leading or trailing whitespace.
+* Some lines might be empty.
+
+Output:
+* The program should output the transformed content  to a new file. 
+* The transformation must ensure: 
+  * The lines are in reverse order compared to the original file.
+  * Within each line, the words appear in reverse order.
+  * Each word is reversed character by character.
+  * The original line number must precede each line.
+
+
+### Additional Constraints
+* You must read from the file no more than once.
+* Unknown File Length: Your program should handle files where the number of lines is not predetermined. Your program should be able to handle lines in the order of 104 or even higher.
+* Robust Input Handling: Ensure that your program gracefully handles empty lines and extra spaces. Any empty line should be counted as a line. 
+* Language Choice: You may implement the solution in one of the programming languages: C/C++/Java/Python
+* Input/Output: 
+  * The program should accept two command-line arguments: (1) the input file name and (2) the output file name 
+  * The transformed output should be written to an output file whose name is given as the second command-line argument.
+*	You are to plot a graph of the  input file size against program runtime using the x-axis to represent the independent variable against the dependent variable which is the time the program takes to run. Based on your graph, estimate the running time of your program. 
+*	Compare this with the analytical big-O notation. What can you conclude from this observation? 
