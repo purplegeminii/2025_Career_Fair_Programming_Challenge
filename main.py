@@ -49,10 +49,10 @@ with open(args.output_file, "w") as out_file:
     
 # Calculate the end time and time taken
 end_time = time.perf_counter_ns()
-t_length = (end_time - start_time)/(10**9)
+t_length = (end_time - start_time)/(10**6)
 
 # Show the result
-print(f"It took {t_length} seconds! for {no_of_lines} lines")
+print(f"It took {t_length} ms! for {no_of_lines} lines")
 
 
 
