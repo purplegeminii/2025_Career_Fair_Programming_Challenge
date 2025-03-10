@@ -34,3 +34,36 @@ Output:
   * The transformed output should be written to an output file whose name is given as the second command-line argument.
 *	You are to plot a graph of the  input file size against program runtime using the x-axis to represent the independent variable against the dependent variable which is the time the program takes to run. Based on your graph, estimate the running time of your program. 
 *	Compare this with the analytical big-O notation. What can you conclude from this observation? 
+
+
+### Example
+Given an input file with the following content:
+
+```
+Hello world.
+Programming is fun!
+```
+
+Step-by-step transformation:
+1.	Reversed order of lines:
+    ```
+    Programming is fun!
+    Hello world
+    ```
+
+2.	Reverse the order of words in each line:
+    * "Programming is fun!" becomes "fun! is Programming"
+    * "Hello world" becomes "world Hello"
+
+3.	Reverse each word’s characters:
+    * "fun!" → "!nuf"
+    * "is" → "si"
+    * "Programming" → "gnimmargorP"
+    * "world" → "dlrow"
+    * "Hello" → "olleH"
+
+The final output should be:
+```
+2. dlrow olleH
+1. !nuf si gnimmargorP
+```
