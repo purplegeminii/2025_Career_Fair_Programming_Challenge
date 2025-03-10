@@ -1,33 +1,43 @@
-# Read file path from cmd arguments
-# Store the lines in the file on first read
-# Write the lines read to the output file in reverse order (start from the bottom of the list)
-# While writing, reverse the words in the sentence
+""" IMPLEMENTATION:
+    Read file path from cmd arguments
+    Store all the lines in the file on first read
+    Write the lines read to the output file in reverse order (start from the bottom of the list)
+    While writing, reverse the words in the sentence
+"""
 
-import argparse
+""" ASSUMPTIONS:
+    - The input file should be a text file
+    - The first argument should be the input file path and the second argument should be the output file path
+    - The file path should be entered correctly
+"""
+
 import time
+import argparse
 
 parser = argparse.ArgumentParser(
     prog='main',
     description='Reverse the lines of a file, the sentences in a line, and the words in a sentence',
-    epilog='Make sure you enter the file name correctly'
+    epilog='Please make sure you entered the correct file path.'
 )
-parser.add_argument('input_file') 
-parser.add_argument('output_file') 
+parser.add_argument('input_file')
+parser.add_argument('output_file')
 args = parser.parse_args()
-
-
-# [100, 200, 400, 800, 1000, 2000, 4000, 6000, 8000, 10000, 100000]
-no_of_lines = 10000
-
-
 lines = []
 
 # Calculate the start time
 start_time = time.perf_counter_ns()
 
-""" Read all the lines in the file into a list """
-with open(args.input_file, "r", encoding="utf-8") as file:
-    lines = file.readlines()[:no_of_lines]
+#Read all the lines in the file into a list
+try:
+    with open(args.input_file, "r", encoding="utf-8") as file:
+        lines = file.readlines()
+except FileNotFoundError:
+    print("The file path entered may be incorrect or the file does not exist.")
+    print("Please enter the correct file path or create the input file before running the program.")
+    exit(1)
+except Exception as e:
+    print(f"An error occurred: {e}")
+    exit(1)
 
 
 """
@@ -45,15 +55,11 @@ with open(args.output_file, "w") as out_file:
         if i != 0:
             out_file.write(f"{i+1}. {line}\n")
         else:
-            out_file.write(f"{i+1}. {line}")    
-    
+            out_file.write(f"{i+1}. {line}")
+
 # Calculate the end time and time taken
 end_time = time.perf_counter_ns()
 t_length = (end_time - start_time)/(10**6)
 
 # Show the result
-print(f"It took {t_length} ms! for {no_of_lines} lines")
-
-
-
-
+print(f"It took {t_length} ms! for {end} lines")
