@@ -16,8 +16,8 @@ parser.add_argument('output_file')
 args = parser.parse_args()
 
 
-# [100, 200, 400, 800, 1000, 2000, 4000, 6000, 8000, 10000]
-no_of_lines = 100
+# [100, 200, 400, 800, 1000, 2000, 4000, 6000, 8000, 10000, 100000]
+no_of_lines = 10000
 
 
 lines = []
@@ -27,7 +27,7 @@ start_time = time.perf_counter_ns()
 
 """ Read all the lines in the file into a list """
 with open(args.input_file, "r", encoding="utf-8") as file:
-    lines = file.readlines(no_of_lines)
+    lines = file.readlines()[:no_of_lines]
 
 
 """
